@@ -1,0 +1,68 @@
+@import "./zero_styles.scss";
+@import "./variables.scss";
+
+* {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: $fz;
+  color: $text-color;
+  background-color: $background-color;
+  @media screen and (min-width: 767px) {
+    font-size: $fz-m;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: $fz-l;
+
+  }
+}
+
+.container {
+  padding: 0 $pg * 5;
+  margin: 0 auto;
+}
+
+.page_wrap {
+  margin: $mn*10 0;
+  background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 20%;
+  background-size: 100px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 48px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+h4 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+@media (max-width: 1023px) {
+  h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+}
+
+
