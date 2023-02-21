@@ -49,7 +49,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 50px 20px;
+    gap: 50px 30px;
   }
   &__photo {
     width: 140px;

@@ -118,7 +118,6 @@ export default {
       }
     },
     updateSize() {
-      console.log(window.innerWidth);
       if (window.innerWidth < 1024) {
         this.isMobileSize = true;
       } else {
@@ -152,6 +151,7 @@ export default {
   width: 100%;
   height: 50px;
   padding: 10px;
+  z-index: 100;
   & img:first-child {
     width: 30px;
     height: 30px;
