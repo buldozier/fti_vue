@@ -1,10 +1,9 @@
 <template>
   <div class="page_wrap">
-    <div class="container">
-      <about-comp />
-      <people-fti-comp />
-      <departments-comp />
-    </div>
+    <about-comp />
+    <people-fti-comp />
+    <departments-comp />
+    <partners-comp />
   </div>
 </template>
 
@@ -12,10 +11,20 @@
 import AboutComp from "@/components/AboutComp";
 import PeopleFtiComp from "@/components/PeopleFtiComp";
 import DepartmentsComp from "@/components/DepartmentsComp";
+import PartnersComp from "@/components/PartnersComp";
 
 export default {
   name: "HomeView",
-  components: { AboutComp, PeopleFtiComp, DepartmentsComp },
+  components: {
+    AboutComp,
+    PeopleFtiComp,
+    DepartmentsComp,
+    PartnersComp,
+  },
+  data() {
+    return {};
+  },
+  methods: {},
 };
 </script>
 

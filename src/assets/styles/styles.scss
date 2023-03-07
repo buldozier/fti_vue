@@ -11,11 +11,11 @@ body {
   font-size: $fz;
   color: $text-color;
   background-color: $background-color;
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     font-size: $fz-m;
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1024px) {
     font-size: $fz-l;
 
   }
@@ -24,12 +24,30 @@ body {
 .container {
   padding: 0 $pg * 5;
   margin: 0 auto;
+  max-width: 370px;
+  @media screen and (min-width: 768px) {
+    max-width: 670px;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 970px;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 1170px;
+  }
+}
+
+.container-header {
+  padding: 0 $pg * 5;
+  margin: 0 auto;
 }
 
 .page_wrap {
   margin: $mn*10 0;
   background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 20%;
   background-size: 100px;
+  @media screen and (min-width: 1024px) {
+    margin: 0 0 $mn * 20 0;
+  }
 }
 
 h2 {

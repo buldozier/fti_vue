@@ -3,12 +3,12 @@
     <router-link class="navbar-mobile__link" @click="toTopOnPage(true)" to="/">
       <img src="../assets/img/лев.png" alt="Логотип" />
     </router-link>
-    <div class="toggle-sidebar" @click="toggleMobileMenu">
+    <div class="toggle-sidebar" @click.stop="toggleMobileMenu">
       <button class="menu-icon">
         <img src="../assets/icons/ui-checks-grid.svg" alt="Меню" />
       </button>
     </div>
-    <div ref="navbar_mobile" class="navbar-mobile">
+    <div ref="navbar_mobile" class="navbar-mobile" @click.stop>
       <nav class="navbar-mobile__links">
         <router-link class="navbar-mobile__link" @click="toTopOnPage" to="/">
           <img src="../assets/icons/house-door-menu.svg" alt="Об институте" />
@@ -53,7 +53,7 @@
     @mouseover="headerOnFocus"
     @mouseout="headerOutFocus"
   >
-    <div class="container">
+    <div class="container-header">
       <div class="navbar" ref="navbar">
         <router-link class="navbar__logo" @click="toTopOnPage" to="/">
           <img src="../assets/img/лев.png" alt="Логотип" />
@@ -87,6 +87,7 @@ export default {
   data() {
     return {
       isMobileSize: null,
+      scrollLength: 0,
     };
   },
   methods: {
@@ -106,6 +107,7 @@ export default {
           this.$refs.dashedOutline.classList.remove("dash-showed");
         }
       }
+      this.scrollLength = window.scrollY;
     },
     headerOnFocus() {
       this.$refs.navbar.classList.remove("navbar-hidden");
@@ -118,15 +120,21 @@ export default {
       }
     },
     updateSize() {
-      if (window.innerWidth < 1024) {
-        this.isMobileSize = true;
-      } else {
-        this.isMobileSize = false;
-      }
+      window.innerWidth < 1024;
     },
     toggleMobileMenu() {
       if (this.$refs.navbar_mobile) {
         this.$refs.navbar_mobile.classList.toggle("navbar-mobile-active");
+      }
+    },
+    clickOutsideNavbar() {
+      if (this.$refs.navbar_mobile) {
+        if (
+          this.$refs.navbar_mobile.classList.contains("navbar-mobile-active") &&
+          event.target.className !== "navbar-mobile navbar-mobile-active"
+        ) {
+          this.$refs.navbar_mobile.classList.toggle("navbar-mobile-active");
+        }
       }
     },
   },
@@ -134,6 +142,12 @@ export default {
     this.updateSize();
     window.addEventListener("scroll", this.onScroll);
     window.addEventListener("resize", this.updateSize);
+    window.addEventListener("click", this.clickOutsideNavbar);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.updateSize);
+    window.removeEventListener("click", this.clickOutsideNavbar);
   },
 };
 </script>
@@ -147,19 +161,27 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: $background-color;
+  background-color: $additional-color-2;
   width: 100%;
   height: 50px;
   padding: 10px;
   z-index: 100;
-  & img:first-child {
+  & img {
     width: 30px;
     height: 30px;
   }
-  & img:last-child {
-    width: 25px;
-    height: 25px;
+  @media screen and (min-width: 768px) {
+    height: 70px;
+    & img {
+      width: 35px;
+      height: 35px;
+    }
   }
+}
+
+.toggle-sidebar {
+  display: flex;
+  height: 100%;
 }
 
 .navbar-mobile {
@@ -171,7 +193,7 @@ export default {
   bottom: 0;
   height: 200px;
   border-radius: 20px 20px 0 0;
-  background-color: $background-color;
+  background-color: $additional-color-2;
   width: 100%;
   transition: transform 0.1s ease-in-out;
   &__links {
@@ -205,7 +227,7 @@ export default {
   height: 150px;
   position: sticky;
   top: 0;
-  & .container {
+  & .container-header {
     width: 100%;
     align-self: center;
     margin: 0;
@@ -219,7 +241,8 @@ export default {
   height: 150px;
   position: sticky;
   top: 0;
-  & .container {
+  z-index: 100;
+  & .container-header {
     width: 100%;
     align-self: center;
     margin: 0;

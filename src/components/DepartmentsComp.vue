@@ -1,16 +1,33 @@
 <template>
-  <div class="departments">
+  <div class="departments" ref="departments">
     <div class="container">
       <div class="departments__top">
         <h2 class="departments__header">Кафедры</h2>
+        <div class="slider-buttons" v-show="isLaptopSize">
+          <button class="swiper-button-prev">
+            <img src="../assets/icons/arrow-up-short_1.svg" alt="Назад" />
+          </button>
+          <button class="swiper-button-next">
+            <img src="../assets/icons/arrow-up-short_1.svg" alt="Назад" />
+          </button>
+        </div>
       </div>
       <Swiper
         :spaceBetween="30"
         :pagination="{
           clickable: true,
         }"
-        :navigation="true"
+        :navigation="{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }"
+        :scrollbar="{
+          hide: true,
+          draggable: true,
+        }"
         :modules="modules"
+        :slides-per-view="slidesPerSlide"
+        :slides-per-group="slidesPerSlide"
       >
         <SwiperSlide v-for="slide in slides" :key="slide.id" class="slide">
           <div>
@@ -40,13 +57,16 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
+import "swiper/css/scrollbar";
+import { Scrollbar, Pagination, Navigation } from "swiper";
 
 export default {
   name: "DepartmentsComp",
   components: { Swiper, SwiperSlide },
   data() {
     return {
+      isLaptopSize: null,
+      slidesPerSlide: 1,
       slides: [
         {
           id: 1,
@@ -133,38 +153,96 @@ export default {
   },
   setup() {
     return {
-      modules: [Pagination, Navigation],
+      modules: [Scrollbar, Pagination, Navigation],
     };
+  },
+  methods: {
+    setSlidesPerSlide() {
+      if (window.innerWidth < 768) {
+        this.slidesPerSlide = 1;
+      }
+      if (window.innerWidth >= 768) {
+        this.slidesPerSlide = 2;
+      }
+
+      if (window.innerWidth >= 1024) {
+        this.slidesPerSlide = 3;
+      }
+    },
+    setWindowSize() {
+      this.isLaptopSize = window.innerWidth >= 1024;
+    },
+  },
+  mounted() {
+    this.setSlidesPerSlide();
+    this.setWindowSize();
+    addEventListener("resize", () => {
+      this.setSlidesPerSlide();
+      this.setWindowSize();
+    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .departments {
-  margin: 0 -15px;
-  background-color: #231f20;
+  margin: 0 10px;
+  background-color: $additional-color-2;
   border-radius: 20px;
   margin-bottom: 40px;
   position: relative;
   overflow: hidden;
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 100px;
+  }
   & .container {
     padding: 25px 10px;
+    @media screen and (min-width: 1024px) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+  &__top {
+    @media screen and (min-width: 1024px) {
+      margin-bottom: 80px;
+      display: flex;
+      justify-content: space-between;
+    }
   }
   &__header {
     margin-bottom: 30px;
+    @media screen and (min-width: 1024px) {
+      margin-bottom: 0;
+    }
   }
   & .swiper {
     display: flex;
     width: 280px;
     color: #0f0d0e;
     overflow: inherit !important;
+    @media screen and (min-width: 768px) {
+      width: 580px;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 970px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 1170px;
+    }
+    & .swiper-button-next,
+    & .swiper-button-prev {
+      --swiper-navigation-color: #007aff;
+    }
   }
 }
 
 .slide {
   background-color: #f9f4da;
   border-radius: 10px;
-
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   &__title {
     display: flex;
     align-items: center;
@@ -176,6 +254,12 @@ export default {
     & h4 {
       text-align: center;
       font-size: $fz;
+      @media screen and (min-width: 1024px) {
+        font-size: $fz-l;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: $fz-xl;
+      }
     }
   }
 
@@ -183,6 +267,13 @@ export default {
     font-size: $fz-s;
     padding: 15px;
     height: 250px;
+    @media screen and (min-width: 1024px) {
+      font-size: $fz;
+      line-height: 1.3;
+    }
+    @media screen and (min-width: 1024px) {
+      line-height: 1.5;
+    }
   }
 
   &__footer {
@@ -191,7 +282,9 @@ export default {
     border-radius: 0 0 10px 10px;
     font-size: $fz-s;
     position: relative;
-
+    @media screen and (min-width: 1024px) {
+      font-size: $fz;
+    }
     &_head {
       margin-bottom: 13px;
 
@@ -204,9 +297,12 @@ export default {
         width: 18px;
         background: url(../assets/icons/person.svg);
         background-size: cover;
+        @media screen and (min-width: 1024px) {
+          height: 20px;
+          width: 20px;
+        }
       }
     }
-
     &_year::before {
       content: "";
       position: absolute;
@@ -216,7 +312,61 @@ export default {
       width: 18px;
       background: url(../assets/icons/calendar-date.svg);
       background-size: cover;
+      @media screen and (min-width: 1024px) {
+        top: 48px;
+        height: 20px;
+        width: 20px;
+      }
     }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .slider-buttons {
+    display: flex;
+    gap: 30px;
+
+    margin-right: 50px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    --swiper-navigation-size: 0px;
+    position: static !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50%;
+    border: none;
+    background-color: #fcba28 !important;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background-color: #f9f4da !important;
+  }
+
+  .swiper-button-disabled {
+    background-color: #fcba28 !important;
+  }
+
+  .swiper-button-prev img,
+  .swiper-button-next img {
+    pointer-events: none;
+    width: 60px;
+    height: 60px;
+  }
+
+  .swiper-button-prev img {
+    transform: rotate(-90deg);
+  }
+
+  .swiper-button-next img {
+    transform: rotate(90deg);
   }
 }
 </style>
