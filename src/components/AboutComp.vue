@@ -150,8 +150,8 @@ export default {
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     &:hover {
-      background-color: $hover-color;
-      border-color: $hover-color;
+      background-color: $main-color-2;
+      color: $text-color-2;
     }
   }
   &__end-pictures {

@@ -120,7 +120,7 @@ export default {
       }
     },
     updateSize() {
-      window.innerWidth < 1024;
+      this.isMobileSize = window.innerWidth < 1024;
     },
     toggleMobileMenu() {
       if (this.$refs.navbar_mobile) {
@@ -221,31 +221,17 @@ export default {
   transform: translateY(0);
 }
 
-.navbar-link .header {
-  display: flex;
-  padding: 0 135px;
-  height: 150px;
-  position: sticky;
-  top: 0;
-  & .container-header {
-    width: 100%;
-    align-self: center;
-    margin: 0;
-    padding: 0;
-  }
-}
-
 .header {
   display: flex;
   padding: 0 135px;
-  height: 150px;
+  height: 120px;
   position: sticky;
   top: 0;
   z-index: 100;
   & .container-header {
     width: 100%;
     align-self: center;
-    margin: 0;
+    margin: auto 0 0 0;
     padding: 0;
   }
 }

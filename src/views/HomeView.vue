@@ -1,8 +1,11 @@
 <template>
   <div class="page_wrap">
-    <about-comp />
+    <about-comp @scrollTo="scrollToElement" />
+    <div ref="people-fti"></div>
     <people-fti-comp />
+    <div ref="departments"></div>
     <departments-comp />
+    <div ref="partners"></div>
     <partners-comp />
   </div>
 </template>
@@ -24,7 +27,30 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    scrollToElement(index) {
+      switch (index) {
+        case 0:
+          window.scrollTo({
+            top: this.$refs["people-fti"].offsetTop - 90,
+            behavior: "smooth",
+          });
+          break;
+        case 1:
+          window.scrollTo({
+            top: this.$refs["departments"].offsetTop - 100,
+            behavior: "smooth",
+          });
+          break;
+        case 2:
+          window.scrollTo({
+            top: this.$refs["partners"].offsetTop - 100,
+            behavior: "smooth",
+          });
+          break;
+      }
+    },
+  },
 };
 </script>
 

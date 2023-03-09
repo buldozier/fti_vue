@@ -113,6 +113,7 @@ export default {
     margin: auto;
     &_inner {
       border: 1px solid #0f0d0e;
+      color: $text-color-2;
       transition: 0.2s color ease-in-out, 0.2s background-color ease-in-out;
       user-select: none;
       &:active,

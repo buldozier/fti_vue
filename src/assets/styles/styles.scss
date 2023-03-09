@@ -5,6 +5,7 @@
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  //scroll-behavior: smooth;
 }
 
 body {
@@ -43,10 +44,17 @@ body {
 
 .page_wrap {
   margin: $mn*10 0;
-  background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 20%;
+  background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 10%;
   background-size: 100px;
+  @media screen and (min-width: 786px) {
+    background-position: 100% 20%;
+    background-size: 200px;
+
+  }
   @media screen and (min-width: 1024px) {
-    margin: 0 0 $mn * 20 0;
+    margin: $mn*10 0 $mn * 20 0;
+    background-position: 100% 10%;
+    background-size: 300px;
   }
 }
 

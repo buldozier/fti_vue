@@ -19,9 +19,8 @@ export default {
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  color: $text-color-2;
   transition: 0.2s color ease-in-out, 0.2s background-color ease-in-out;
   user-select: none;
-  background-color: $main-color-2;
+  color: $main-color-2;
 }
 </style>

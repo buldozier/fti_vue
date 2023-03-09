@@ -243,6 +243,7 @@ export default {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  cursor: pointer;
   &__title {
     display: flex;
     align-items: center;
