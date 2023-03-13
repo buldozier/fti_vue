@@ -94,7 +94,7 @@ export default {
     display: inline-block;
     position: absolute;
     filter: brightness(0.3);
-    box-shadow: 3px 3px #fcba28;
+    box-shadow: 3px 3px $main-color-2;
     border-radius: 50%;
     top: 0;
     right: 30px;
@@ -102,7 +102,7 @@ export default {
     @media screen and (min-width: 1024px) {
       position: inherit;
       filter: brightness(1);
-      box-shadow: 5px 5px #fcba28;
+      box-shadow: 5px 5px $main-color-2;
       border-radius: 50%;
       width: 350px;
       height: 350px;

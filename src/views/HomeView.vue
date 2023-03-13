@@ -1,10 +1,10 @@
 <template>
-  <div class="page_wrap">
+  <div class="page-wrap">
     <about-comp @scrollTo="scrollToElement" />
     <div ref="people-fti"></div>
     <people-fti-comp />
     <div ref="departments"></div>
-    <departments-comp />
+    <departments-slider-comp />
     <div ref="partners"></div>
     <partners-comp />
   </div>
@@ -13,7 +13,7 @@
 <script>
 import AboutComp from "@/components/AboutComp";
 import PeopleFtiComp from "@/components/PeopleFtiComp";
-import DepartmentsComp from "@/components/DepartmentsComp";
+import DepartmentsSliderComp from "@/components/DepartmentsSliderComp";
 import PartnersComp from "@/components/PartnersComp";
 
 export default {
@@ -21,7 +21,7 @@ export default {
   components: {
     AboutComp,
     PeopleFtiComp,
-    DepartmentsComp,
+    DepartmentsSliderComp,
     PartnersComp,
   },
   data() {

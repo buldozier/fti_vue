@@ -241,7 +241,7 @@ export default {
   display: flex;
   width: 100%;
   color: $main-color;
-  background-color: $background-color;
+  background-color: $background-color-2;
   border-radius: 50px;
   font-weight: 500;
   justify-content: space-between;

@@ -68,12 +68,12 @@ export default {
     & img {
       margin-bottom: 25px;
       border-radius: 20px;
-      box-shadow: 3px 3px #fcba28;
+      box-shadow: 3px 3px $main-color-2;
       width: 100%;
       @media screen and (min-width: 1024px) {
         margin-bottom: 30px;
         border-radius: 20px;
-        box-shadow: 5px 5px #fcba28;
+        box-shadow: 5px 5px $main-color-2;
         width: 100%;
       }
     }

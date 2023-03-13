@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
   color: #0f0d0e;
-  background-color: #fcba28;
+  background-color: $main-color-2;
   &__content {
     display: flex;
     flex-direction: column;
@@ -118,7 +118,7 @@ export default {
       user-select: none;
       &:active,
       &:hover {
-        color: #fcba28;
+        color: $main-color-2;
         background-color: #0f0d0e;
       }
     }

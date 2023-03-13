@@ -11,7 +11,7 @@
 body {
   font-size: $fz;
   color: $text-color;
-  background-color: $background-color;
+  background: $background-color;
   @media screen and (min-width: 768px) {
     font-size: $fz-m;
   }
@@ -42,7 +42,7 @@ body {
   margin: 0 auto;
 }
 
-.page_wrap {
+.page-wrap {
   margin: $mn*10 0;
   background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 10%;
   background-size: 100px;
@@ -87,7 +87,7 @@ h4 {
   }
 
   h4 {
-    font-size: 20px;
+    font-size: $fz-l;
   }
 }
 
