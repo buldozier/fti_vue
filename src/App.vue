@@ -9,6 +9,7 @@
 <script>
 import NavbarComp from "@/components/NavbarComp";
 import FooterComp from "@/components/FooterComp";
+
 export default {
   name: "App",
   components: { NavbarComp, FooterComp },

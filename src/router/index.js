@@ -6,7 +6,7 @@ import ContactsView from "@/views/ContactsView";
 
 const routes = [
   {
-    path: "/",
+    path: "",
     name: "home",
     component: HomeView,
   },
@@ -25,10 +25,16 @@ const routes = [
     name: "contacts",
     component: ContactsView,
   },
+  {
+    path: "/:catchAll(.*)",
+    redirect: "/",
+    hidden: true,
+  },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
+  mode: "history",
   routes,
 });
 
