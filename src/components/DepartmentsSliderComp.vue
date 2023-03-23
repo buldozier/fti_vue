@@ -269,10 +269,11 @@ export default {
     padding: 15px;
     height: 250px;
     @media screen and (min-width: 1024px) {
-      font-size: $fz;
+      font-size: $fz-s;
       line-height: 1.3;
     }
     @media screen and (min-width: 1024px) {
+      font-size: $fz;
       line-height: 1.5;
     }
   }

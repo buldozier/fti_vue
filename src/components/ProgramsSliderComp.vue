@@ -1,33 +1,33 @@
 <template>
   <div class="programs-slider">
     <div class="container">
-      <div class="program-slider__top">
-        <div class="program-slider__top_content">
+      <div class="programs-slider__top">
+        <div class="programs-slider__top_content">
           <h2 class="programs-slider__header">Направления подготовки</h2>
-          <div class="programs-slider__buttons">
-            <div
-              class="programs-slider__button"
-              :class="isSwiperBakalavr ? 'button-checked' : ''"
-              @click="setProgramsType('bak')"
-            >
-              Бакалавриат/Специалитет
-            </div>
-            <div
-              class="programs-slider__button"
-              :class="isSwiperBakalavr ? '' : 'button-checked'"
-              @click="setProgramsType()"
-            >
-              Магистратура
-            </div>
+          <div class="slider-buttons" v-show="isLaptopSize">
+            <button class="swiper-button-prev">
+              <img src="../assets/icons/arrow-up-short_1.svg" alt="Назад" />
+            </button>
+            <button class="swiper-button-next">
+              <img src="../assets/icons/arrow-up-short_1.svg" alt="Вперед" />
+            </button>
           </div>
         </div>
-        <div class="slider-buttons">
-          <button class="swiper-button-prev">
-            <img src="../assets/icons/arrow-up-short_1.svg" alt="Назад" />
-          </button>
-          <button class="swiper-button-next">
-            <img src="../assets/icons/arrow-up-short_1.svg" alt="Вперед" />
-          </button>
+        <div class="programs-slider__buttons">
+          <div
+            class="programs-slider__button"
+            :class="isSwiperBakalavr ? 'button-checked' : ''"
+            @click="setProgramsType('bak')"
+          >
+            Бакалавриат/Специалитет
+          </div>
+          <div
+            class="programs-slider__button"
+            :class="isSwiperBakalavr ? '' : 'button-checked'"
+            @click="setProgramsType()"
+          >
+            Магистратура
+          </div>
         </div>
       </div>
       <Swiper
@@ -270,39 +270,62 @@ export default {
 }
 
 .programs-slider {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: $mn * 3;
+  margin-right: $mn * 3;
   background-color: #231f20;
   border-radius: 20px;
-  margin-bottom: 50px;
+  margin-bottom: $mn * 10;
   position: relative;
   overflow: hidden;
+  @media screen and (min-width: 1024px) {
+    margin-bottom: $mn * 20;
+  }
   & .container {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: $mn * 5;
+    padding-bottom: $mn * 5;
+    @media screen and (min-width: 1024px) {
+      padding-top: $mn * 10;
+      padding-bottom: $mn * 10;
+    }
   }
   &__top {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: $mn * 6;
     &_content {
       display: flex;
-      flex-direction: column;
+      width: 100%;
       gap: 20px;
-      margin-bottom: 30px;
+      @media screen and (min-width: 768px) {
+        justify-content: space-between;
+      }
     }
   }
   &__header {
     margin-bottom: 0;
+    @media screen and (min-width: 768px) {
+      width: 100%;
+    }
+    @media screen and (min-width: 768px) {
+      width: auto;
+    }
   }
   &__buttons {
     display: flex;
+    width: 100%;
     justify-content: space-evenly;
-    font-size: 12px;
+    font-size: $fz;
     margin: $mn * 4 0;
+    @media screen and (min-width: 1024px) {
+      justify-content: flex-start;
+      font-size: $fz-l;
+      gap: 20px;
+    }
   }
   &__button {
     color: #fcba28;
-    padding: 10px;
+    padding: $pg * 2;
     border: 1px solid #fcba28;
     border-radius: 10px;
     cursor: pointer;
@@ -322,7 +345,20 @@ export default {
 .swiper {
   width: 280px;
   color: #0f0d0e;
+  font-size: $fz;
   overflow: inherit !important;
+  @media (min-width: 768px) {
+    width: 580px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 950px;
+  }
+  @media screen and (min-width: 1050px) {
+    width: 1000px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1170px;
+  }
 }
 
 .swiper-slide {
@@ -340,24 +376,43 @@ export default {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    padding: 15px 15px 0 15px;
+    padding: $pg * 3 $pg * 3 0 $pg * 3;
     &_header {
       display: flex;
       text-align: center;
       height: 60px;
-
+      @media screen and (min-width: 1024px) {
+        font-size: $fz-xl;
+      }
       & h4 {
         margin: auto;
+        @media screen and (min-width: 1024px) {
+          font-size: $fz-xl;
+        }
       }
-      &.magistr-header h4 {
-        font-size: $fz !important;
+      &.magistr-header {
+        height: 82px;
+        & h4 {
+          font-size: $fz !important;
+          @media screen and (min-width: 1200px) {
+            text-align: center;
+            font-size: $fz-l !important;
+          }
+        }
       }
     }
     &_bottom {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      font-size: 12px;
+      font-size: $fz-s;
+      @media screen and (min-width: 1024px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: $fz;
+      }
     }
     &__button {
       display: inline-block;
@@ -377,16 +432,22 @@ export default {
     padding: $pg * 3 $pg * 3 $pg * 3 $pg * 6;
     font-size: $fz-s;
     height: 220px;
+    @media screen and (min-width: 1200px) {
+      font-size: $fz;
+    }
     &_magistr {
       padding: $pg * 3;
       font-size: $fz-s;
       height: 282px;
+      @media screen and (min-width: 1200px) {
+        font-size: $fz;
+      }
     }
   }
   &__footer {
     display: flex;
     gap: 10px;
-    height: 130px;
+    font-size: $fz-l;
     padding: 0 15px 15px 15px;
     &_magistr {
       display: flex;
@@ -397,7 +458,7 @@ export default {
   &__places-and-score {
     display: flex;
     flex-direction: column;
-    width: 114px;
+    width: 146px;
     gap: 10px;
     line-height: 1;
     &_places {
@@ -441,6 +502,9 @@ export default {
     flex: 1;
     flex-wrap: wrap;
     gap: 5px;
+    @media screen and (min-width: 1200px) {
+      margin-left: 20px;
+    }
     &_magistr {
       display: flex;
       flex-wrap: wrap;
@@ -449,7 +513,6 @@ export default {
     }
   }
   &__subject {
-    margin-right: auto;
     height: 15px;
     line-height: 1.2;
     padding: $pg $pg * 2;
@@ -478,6 +541,10 @@ export default {
     height: 40px;
     padding: 0 $pg;
     color: $text-color-2;
+    @media screen and (min-width: 1200px) {
+      font-size: $fz-m;
+      width: 200px;
+    }
     &:hover {
       background-color: $background-color;
       color: $text-color;
@@ -494,6 +561,9 @@ export default {
   border-radius: 10px;
   margin: 0 auto;
   color: #f9f4da;
+  @media screen and (min-width: 1024px) {
+    margin: 0;
+  }
 }
 
 .bakalavr {
@@ -543,6 +613,16 @@ export default {
 
 .slider-buttons {
   display: none;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    gap: 30px;
+
+    margin-right: 50px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
 }
 
 .swiper-button-prev::after,
@@ -556,5 +636,54 @@ export default {
 
 .swiper-scrollbar {
   margin-bottom: 5px;
+}
+
+@media screen and (min-width: 1024px) {
+  .slider-buttons {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-right: 50px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    --swiper-navigation-size: 0px;
+    position: static !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50%;
+    border: none;
+    background-color: $main-color-2 !important;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background-color: $main-color !important;
+  }
+
+  .swiper-button-disabled {
+    background-color: $main-color-2 !important;
+  }
+
+  .swiper-button-prev img,
+  .swiper-button-next img {
+    pointer-events: none;
+    width: 60px;
+    height: 60px;
+  }
+
+  .swiper-button-prev img {
+    transform: rotate(-90deg);
+  }
+
+  .swiper-button-next img {
+    transform: rotate(90deg);
+  }
 }
 </style>

@@ -31,27 +31,34 @@
       </form>
       <div class="calculator-response">
         <div class="response" v-if="responseSubjects.length !== 0">
+          <div class="response-header" v-show="isLaptopSize">
+            <div class="response-header__code">Код</div>
+            <div class="response-header__name">Название направления</div>
+            <div class="response-header__score">Проходной балл 2021</div>
+            <div class="response-header__places">Бюджетных мест</div>
+            <div class="response-header__tests">Вступительные испытания</div>
+          </div>
           <div
             class="response__object"
             v-for="program in responseSubjects"
             :key="program.id"
           >
             <div class="response__code">
-              <p>Код направления:</p>
+              <p v-show="!isLaptopSize">Код направления:</p>
               <p>{{ program.code }}</p>
             </div>
             <a :href="program.link" target="_blank" class="response__name">{{
               program.title
             }}</a>
             <div class="response__score">
-              <p>Проходной балл:</p>
+              <p v-show="!isLaptopSize">Проходной балл:</p>
               <div class="score">
                 <img src="../assets/icons/check-all.svg" alt="Проходной балл" />
                 <p>{{ program.score }}</p>
               </div>
             </div>
             <div class="response__places">
-              <p>Бюджетных мест:</p>
+              <p v-show="!isLaptopSize">Бюджетных мест:</p>
               <div class="places">
                 <img src="../assets/icons/people.svg" alt="Количество мест" />
                 <p>{{ program.places }}</p>
@@ -85,6 +92,7 @@ export default {
   data() {
     return {
       rejectText: "",
+      isLaptopSize: null,
       labels: [
         {
           id: 1,
@@ -217,46 +225,81 @@ export default {
 
       return filteredSubjects;
     },
+    setWindowSize() {
+      this.isLaptopSize = window.innerWidth >= 1024;
+    },
   },
   computed: {
     ...mapGetters(["getProgramsBak"]),
+  },
+  mounted() {
+    this.setWindowSize();
+    addEventListener("resize", () => {
+      this.setWindowSize();
+    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .calculator {
-  margin-bottom: 50px;
+  margin-bottom: $mn * 10;
+  @media screen and (min-width: 1024px) {
+    margin-bottom: $mn * 20;
+  }
   &__subjects {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 30px;
     margin-bottom: 30px;
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin-bottom: $mn * 10;
+    }
+    @media screen and (min-width: 1200px) {
+      justify-content: space-evenly;
+      margin-bottom: 50px;
+    }
+    & h3 {
+      align-self: center;
+    }
+    & input {
+      width: 50px;
+      padding: 15px;
+      font-size: $fz;
+      color: #f9f4da;
+      border: 1px solid #f9f4da;
+      background: transparent;
+      border-radius: 10px;
+      outline: none;
+      align-self: center;
+      text-align: center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      @media screen and (min-width: 1024px) {
+        width: 70px;
+        font-size: 18px;
+      }
+    }
+    &_invalid {
+      border-color: #9d1717 !important;
+    }
   }
-  &__subjects h3 {
-    align-self: center;
-  }
-  &__subjects input {
-    width: 50px;
-    padding: 15px;
-    color: #f9f4da;
-    border: 1px solid #f9f4da;
-    background: transparent;
-    border-radius: 10px;
-    outline: none;
-    align-self: center;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  &__subjects_invalid {
-    border-color: #9d1717 !important;
-  }
-  &__subject label {
-    display: flex;
-    justify-content: space-between;
+  &__subject {
+    @media screen and (min-width: 1200px) {
+      width: 185px;
+    }
+    & label {
+      display: flex;
+      justify-content: space-between;
+      @media screen and (min-width: 1024px) {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
   }
   &__submit {
     display: flex;
@@ -269,6 +312,12 @@ export default {
       border: 1px solid #fcba28;
       background-color: #fcba28;
       cursor: pointer;
+      transition: background-color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
+      &:hover {
+        background-color: #f9f4da;
+        border-color: #f9f4da;
+      }
     }
   }
 }
@@ -285,10 +334,54 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .response {
-  gap: 15px;
+  gap: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  &-header {
+    display: flex;
+    padding: 15px;
+    height: 40px;
+    width: 100%;
+    color: #0f0d0e;
+    font-weight: bold;
+    background-color: #f9f4da;
+    border-radius: 10px;
+    align-self: center;
+    & div {
+      align-self: center;
+      text-align: center;
+    }
+    &__code {
+      width: 100px;
+    }
+
+    &__name {
+      width: 360px;
+      @media screen and (min-width: 1200px) {
+        width: 430px;
+      }
+    }
+
+    &__score {
+      width: 130px;
+      @media screen and (min-width: 1200px) {
+        width: 190px;
+      }
+    }
+    &__places {
+      width: 130px;
+      @media screen and (min-width: 1200px) {
+        width: 170px;
+      }
+    }
+    &__tests {
+      width: 220px;
+      @media screen and (min-width: 1200px) {
+        width: 250px;
+      }
+    }
+  }
   &__object {
     display: flex;
     background-color: #f9f4da;
@@ -297,14 +390,31 @@ input[type="number"]::-webkit-inner-spin-button {
     color: #0f0d0e;
     font-size: $fz-m;
     flex-direction: column;
-    width: 100%;
+    width: 300px;
     gap: 10px;
     position: relative;
+    @media screen and (min-width: 1024px) {
+      font-size: $fz-l;
+      flex-direction: row;
+      width: 940px;
+      gap: 0;
+      position: relative;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 1140px;
+    }
   }
   &__code {
     display: flex;
     justify-content: space-between;
     font-size: $fz;
+    @media screen and (min-width: 1024px) {
+      width: 100px;
+      font-size: 18px;
+      & p {
+        margin: auto;
+      }
+    }
   }
   &__name {
     display: flex;
@@ -314,10 +424,21 @@ input[type="number"]::-webkit-inner-spin-button {
     text-align: center;
     height: 50px;
     align-items: center;
+    @media screen and (min-width: 1024px) {
+      margin: auto;
+      width: 360px;
+      font-weight: normal;
+      height: auto;
+      justify-content: center;
+    }
   }
   &__score {
     display: flex;
     justify-content: space-between;
+    @media screen and (min-width: 1024px) {
+      margin: auto;
+      width: 130px;
+    }
     & img {
       width: 24px;
     }
@@ -325,6 +446,10 @@ input[type="number"]::-webkit-inner-spin-button {
   &__places {
     display: flex;
     justify-content: space-between;
+    @media screen and (min-width: 1024px) {
+      margin: 0;
+      width: 130px;
+    }
     & img {
       width: 20px;
     }
@@ -335,6 +460,13 @@ input[type="number"]::-webkit-inner-spin-button {
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
+    @media screen and (min-width: 1024px) {
+      width: 220px;
+      justify-content: center;
+      font-size: 14px;
+      margin: auto;
+      gap: 5px;
+    }
   }
   &__test {
     background-color: #007aff;
@@ -351,6 +483,9 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     align-self: center;
   }
+  @media screen and (min-width: 1024px) {
+    margin: auto;
+  }
 }
 
 .places {
@@ -359,6 +494,9 @@ input[type="number"]::-webkit-inner-spin-button {
   & p {
     display: flex;
     align-self: center;
+  }
+  @media screen and (min-width: 1024px) {
+    margin: auto;
   }
 }
 

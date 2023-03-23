@@ -82,17 +82,32 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    @media screen and (min-width: 1024px) {
+      gap: 50px;
+    }
   }
   &__link {
     display: flex;
     width: 325px;
     position: relative;
+    @media screen and (min-width: 1024px) {
+      width: 460px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 560px;
+    }
     & a {
       margin-left: 40px;
       margin-top: 6px;
       margin-bottom: 6px;
       color: #f9f4da;
       font-size: 14px;
+      @media screen and (min-width: 1024px) {
+        margin-left: 60px;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        font-size: $fz-l;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -102,6 +117,12 @@ export default {
         background-size: cover;
         width: 30px;
         height: 30px;
+        @media screen and (min-width: 1024px) {
+          top: 0;
+          left: 0;
+          width: 40px;
+          height: 40px;
+        }
       }
     }
   }
@@ -110,17 +131,34 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    @media screen and (min-width: 1024px) {
+      margin-top: 50px;
+      gap: 50px;
+    }
   }
   &__doc {
     display: flex;
     width: 325px;
     position: relative;
     text-decoration: underline;
+    @media screen and (min-width: 1024px) {
+      width: 460px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 560px;
+    }
     & a {
       margin-left: 40px;
       color: #f9f4da;
       font-size: 14px;
       text-decoration: none;
+      @media screen and (min-width: 1024px) {
+        margin-left: 60px;
+        font-size: 18px;
+        display: inline-block;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
       &:before {
         content: "";
         position: absolute;
@@ -130,6 +168,12 @@ export default {
         background-size: cover;
         width: 30px;
         height: 30px;
+        @media screen and (min-width: 1024px) {
+          top: 0;
+          left: 0;
+          width: 40px;
+          height: 40px;
+        }
       }
     }
   }

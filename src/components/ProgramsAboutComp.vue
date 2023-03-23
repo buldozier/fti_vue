@@ -35,12 +35,18 @@ export default {
 
 <style lang="scss" scoped>
 .about-programs {
-  margin-bottom: 50px;
+  margin-bottom: $mn * 10;
+  @media screen and (min-width: 1024px) {
+    margin-bottom: $mn * 20;
+  }
   &__flex {
     display: flex;
     gap: 30px;
     flex-direction: column;
     color: $background-color;
+    @media screen and (min-width: 1024px) {
+      flex-direction: row-reverse;
+    }
   }
   &__img {
     display: flex;
@@ -49,6 +55,19 @@ export default {
       width: 310px;
       border-radius: 10px;
       box-shadow: 3px 3px $main-color-2;
+      @media (min-width: 768px) {
+        width: 500px;
+      }
+      @media screen and (min-width: 1024px) {
+        width: 600px;
+        height: 400px;
+        margin: auto 0;
+        box-shadow: 5px 5px #fcba28;
+      }
+      @media screen and (min-width: 1200px) {
+        width: 724px;
+        height: 482px;
+      }
     }
   }
   &__info {
@@ -62,6 +81,15 @@ export default {
       padding: 20px 20px 10px 20px;
       text-align: left;
     }
+    @media (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @media screen and (min-width: 1024px) {
+      flex-direction: column;
+      margin-left: 0;
+      margin-right: auto;
+    }
   }
   &__info-block {
     width: 310px;
@@ -70,6 +98,10 @@ export default {
     box-shadow: 3px 3px $main-color-2;
     margin-left: auto;
     margin-right: auto;
+    @media screen and (min-width: 1024px) {
+      width: 340px;
+      box-shadow: 5px 5px #fcba28;
+    }
   }
   &__count h2 {
     padding-bottom: 0;

@@ -15,10 +15,8 @@ body {
   @media screen and (min-width: 768px) {
     font-size: $fz-m;
   }
-
   @media screen and (min-width: 1024px) {
     font-size: $fz-l;
-
   }
 }
 
@@ -27,7 +25,7 @@ body {
   margin: 0 auto;
   max-width: 370px;
   @media screen and (min-width: 768px) {
-    max-width: 670px;
+    max-width: 680px;
   }
   @media screen and (min-width: 1024px) {
     max-width: 970px;
