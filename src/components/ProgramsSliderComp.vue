@@ -307,12 +307,14 @@ export default {
     @media screen and (min-width: 768px) {
       width: 100%;
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1024px) {
       width: auto;
     }
   }
   &__buttons {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 100%;
     justify-content: space-evenly;
     font-size: $fz;
@@ -458,9 +460,14 @@ export default {
   &__places-and-score {
     display: flex;
     flex-direction: column;
-    width: 146px;
+    width: 110px;
     gap: 10px;
+    font-size: $fz;
     line-height: 1;
+    @media screen and (min-width: 1024px) {
+      font-size: $fz-m;
+      width: 146px;
+    }
     &_places {
       & > .number::after {
         content: "";

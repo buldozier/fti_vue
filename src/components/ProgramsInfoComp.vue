@@ -98,10 +98,14 @@ export default {
     }
     & a {
       margin-left: 40px;
+      text-decoration: none;
       margin-top: 6px;
       margin-bottom: 6px;
       color: #f9f4da;
       font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+      }
       @media screen and (min-width: 1024px) {
         margin-left: 60px;
         margin-top: 9px;
@@ -140,7 +144,6 @@ export default {
     display: flex;
     width: 325px;
     position: relative;
-    text-decoration: underline;
     @media screen and (min-width: 1024px) {
       width: 460px;
     }
@@ -150,8 +153,11 @@ export default {
     & a {
       margin-left: 40px;
       color: #f9f4da;
-      font-size: 14px;
       text-decoration: none;
+      font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+      }
       @media screen and (min-width: 1024px) {
         margin-left: 60px;
         font-size: 18px;
