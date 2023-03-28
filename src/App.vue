@@ -1,18 +1,24 @@
 <template>
-  <div class="about">
+  <main class="main">
     <navbar-comp />
     <router-view />
     <footer-comp />
-  </div>
+    <modal-u-i v-if="showModal" />
+  </main>
 </template>
 
 <script>
 import NavbarComp from "@/components/NavbarComp";
 import FooterComp from "@/components/FooterComp";
+import ModalUI from "@/components/UI/ModalUI";
+import { mapGetters } from "vuex";
 
 export default {
   name: "App",
-  components: { NavbarComp, FooterComp },
+  components: { NavbarComp, FooterComp, ModalUI },
+  computed: {
+    ...mapGetters(["showModal"]),
+  },
 };
 </script>
 

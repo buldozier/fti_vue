@@ -3,7 +3,12 @@
     <div class="container">
       <h2 class="events__header">Мероприятия</h2>
       <div class="events__content">
-        <div class="event" v-for="event in events" :key="event.id">
+        <div
+          class="event"
+          v-for="event in getAllEvents"
+          :key="event.id"
+          @click="showModal(event.id)"
+        >
           <img
             :src="require(`../assets/img/student_union/${event.name}`)"
             :alt="event.header"
@@ -16,60 +21,24 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "StudentUnionEventsComp",
   data() {
-    return {
-      events: [
-        {
-          id: 1,
-          name: "Физтех_Weekend.png",
-          header: "Физтех Weekend",
-        },
-        {
-          id: 2,
-          name: "Дебют_первокурсников.png",
-          header: "Дебют первокурсников",
-        },
-        {
-          id: 3,
-          name: "Слет_ФТИ.png",
-          header: "Слет ФТИ",
-        },
-        {
-          id: 4,
-          name: "ЧтоГдеКогда.png",
-          header: "Что? Где? Когда?",
-        },
-        {
-          id: 5,
-          name: "Школа_студенческого_актива.png",
-          header: "Школа студенческого актива",
-        },
-        {
-          id: 6,
-          name: "Квест.jpg",
-          header: "Квест",
-        },
-        {
-          id: 7,
-          name: "Международная_конференция_ФТИ.png",
-          header: "Международная конференция ФТИ",
-        },
-        {
-          id: 8,
-          name: "Выпускной.png",
-          header: "Выпускной",
-        },
-        {
-          id: 9,
-          name: "Фотопрогулка.jpg",
-          header: "Фотопрогулка",
-        },
-      ],
-    };
+    return {};
   },
-  computed: {},
+  methods: {
+    ...mapMutations(["changeModalShow", "setModalEventId"]),
+    showModal(id) {
+      console.log(id);
+      this.setModalEventId(id);
+      this.changeModalShow();
+    },
+  },
+  computed: {
+    ...mapGetters(["getAllEvents", "getEventById"]),
+  },
 };
 </script>
 
