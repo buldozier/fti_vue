@@ -68,14 +68,14 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 35px;
+    gap: 25px;
     margin-bottom: 60px;
   }
 }
 
 .button {
   display: flex;
-  width: 140px;
+  width: 130px;
   height: 50px;
   border: 1px solid #fcba28;
   border-radius: 10px;

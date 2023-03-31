@@ -92,7 +92,7 @@ export default {
     }
   }
   &__info-block {
-    width: 310px;
+    width: 280px;
     background-color: $main-color;
     border-radius: 10px;
     box-shadow: 3px 3px $main-color-2;

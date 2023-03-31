@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import AboutComp from "@/components/AboutComp";
-import PeopleFtiComp from "@/components/PeopleFtiComp";
-import DepartmentsSliderComp from "@/components/DepartmentsSliderComp";
-import PartnersComp from "@/components/PartnersComp";
+import AboutComp from "@/components/HomeAbout";
+import PeopleFtiComp from "@/components/HomePeopleFti";
+import DepartmentsSliderComp from "@/components/HomeDepartmentsSlider";
+import PartnersComp from "@/components/HomePartners";
 
 export default {
   name: "HomeView",

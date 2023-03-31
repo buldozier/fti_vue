@@ -32,6 +32,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+import { showBodyOverflow, hideBodyOverflow } from "@/helpers/bodyOverflow";
 
 export default {
   name: "ModalVue",
@@ -45,6 +46,7 @@ export default {
     ...mapMutations(["changeModalShow"]),
     modalHidden() {
       this.changeModalShow();
+      showBodyOverflow();
     },
   },
   computed: {
@@ -55,6 +57,7 @@ export default {
       this.$refs.modal.classList.add("opacity");
     }, 0);
     this.event = this.getModalEventId;
+    hideBodyOverflow();
   },
 };
 </script>

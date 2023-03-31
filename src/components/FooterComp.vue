@@ -46,6 +46,7 @@ export default {
 .footer {
   color: #0f0d0e;
   background-color: $main-color-2;
+  text-align: center;
   &__content {
     display: flex;
     flex-direction: column;
@@ -139,9 +140,9 @@ export default {
 }
 
 .container__footer {
-  width: 320px;
-  margin: 0 auto 50px;
-  padding: 50px 15px;
+  width: 280px;
+  margin: 0 auto $mn * 10;
+  padding: $pg * 10 $pg * 3;
   display: flex;
   justify-content: center;
   position: relative;

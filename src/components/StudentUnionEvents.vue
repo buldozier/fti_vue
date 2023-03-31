@@ -58,16 +58,16 @@ export default {
   margin: auto;
   flex-wrap: wrap;
   position: relative;
-  width: 310px;
-  height: 207px;
+  width: 280px;
+  height: 187px;
   background-color: #0f0d0e;
   border-radius: 20px;
   user-select: none;
   & img {
     border-radius: 20px;
     filter: opacity(30%);
-    width: 310px;
-    height: 207px;
+    width: 280px;
+    height: 187px;
     position: absolute;
     top: 0;
     left: 0;

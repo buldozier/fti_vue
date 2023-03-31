@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import AboutProgramsComp from "@/components/ProgramsAboutComp";
-import ProgramsSliderComp from "@/components/ProgramsSliderComp";
-import CalculatorComp from "@/components/ProgramsCalculatorComp";
-import ProgramsInfoComp from "@/components/ProgramsInfoComp";
+import AboutProgramsComp from "@/components/ProgramsAbout";
+import ProgramsSliderComp from "@/components/ProgramsSlider";
+import CalculatorComp from "@/components/ProgramsCalculator";
+import ProgramsInfoComp from "@/components/ProgramsInfo";
 export default {
   name: "ProgramsView",
   components: {

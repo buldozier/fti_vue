@@ -127,7 +127,6 @@ export default {
       return state.events;
     },
     getModalEventId(state) {
-      console.log(state.modalEventId);
       return state.events[state.modalEventId - 1];
     },
   },
