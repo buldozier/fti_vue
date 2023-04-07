@@ -54,13 +54,16 @@ export default {
 <style lang="scss" scoped>
 .information {
   margin-top: $mn * 10;
+  @media screen and (min-width: 1024px) {
+    margin-top: $mn * 20;
+  }
   &__docs {
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     @media screen and (min-width: 1024px) {
-      margin-top: 50px;
+      margin-top: $mn * 10;
       gap: 50px;
     }
   }
@@ -78,13 +81,16 @@ export default {
       margin-left: 40px;
       color: #f9f4da;
       text-decoration: none;
-      font-size: 14px;
+      font-size: $fz;
+      @media screen and (min-width: 768px) {
+        font-size: $fz-m;
+      }
       &:hover {
         text-decoration: underline;
       }
       @media screen and (min-width: 1024px) {
-        margin-left: 60px;
-        font-size: 18px;
+        margin-left: $mn * 12;
+        font-size: $fz-l;
         display: inline-block;
         margin-top: auto;
         margin-bottom: auto;

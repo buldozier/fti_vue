@@ -97,17 +97,20 @@ export default {
       width: 560px;
     }
     & a {
-      margin-left: 40px;
+      margin-left: $mn * 8;
       text-decoration: none;
       margin-top: 6px;
       margin-bottom: 6px;
       color: #f9f4da;
-      font-size: 14px;
+      font-size: $fz;
+      @media screen and (min-width: 768px) {
+        font-size: $fz-m;
+      }
       &:hover {
         text-decoration: underline;
       }
       @media screen and (min-width: 1024px) {
-        margin-left: 60px;
+        margin-left: $mn * 12;
         margin-top: 9px;
         margin-bottom: 9px;
         font-size: $fz-l;
@@ -131,12 +134,12 @@ export default {
     }
   }
   &__docs {
-    margin-top: 30px;
+    margin-top: $mn * 6;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     @media screen and (min-width: 1024px) {
-      margin-top: 50px;
+      margin-top: $mn * 10;
       gap: 50px;
     }
   }
@@ -151,16 +154,19 @@ export default {
       width: 560px;
     }
     & a {
-      margin-left: 40px;
+      margin-left: $mn * 8;
       color: #f9f4da;
       text-decoration: none;
-      font-size: 14px;
+      font-size: $fz;
+      @media screen and (min-width: 768px) {
+        font-size: $fz-m;
+      }
       &:hover {
         text-decoration: underline;
       }
       @media screen and (min-width: 1024px) {
-        margin-left: 60px;
-        font-size: 18px;
+        margin-left: $mn * 12;
+        font-size: $fz-l;
         display: inline-block;
         margin-top: auto;
         margin-bottom: auto;

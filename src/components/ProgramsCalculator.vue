@@ -252,7 +252,7 @@ export default {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 30px;
-    margin-bottom: 30px;
+    margin-bottom: $mn * 6;
     @media screen and (min-width: 1024px) {
       flex-direction: row;
       justify-content: space-evenly;
@@ -260,14 +260,14 @@ export default {
     }
     @media screen and (min-width: 1200px) {
       justify-content: space-evenly;
-      margin-bottom: 50px;
+      margin-bottom: $mn * 10;
     }
     & h3 {
       align-self: center;
     }
     & input {
       width: 50px;
-      padding: 15px;
+      padding: $mn * 3;
       font-size: $fz;
       color: #f9f4da;
       border: 1px solid #f9f4da;
@@ -281,7 +281,7 @@ export default {
       appearance: none;
       @media screen and (min-width: 1024px) {
         width: 70px;
-        font-size: 18px;
+        font-size: $fz-l;
       }
     }
     &_invalid {
@@ -306,7 +306,7 @@ export default {
     justify-content: center;
     & button {
       font-family: "Roboto", sans-serif;
-      padding: 15px;
+      padding: $pg * 3;
       border-radius: 10px;
       color: #0f0d0e;
       border: 1px solid #fcba28;
@@ -325,6 +325,7 @@ export default {
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
   margin: 0;
 }
 
@@ -340,7 +341,7 @@ input[type="number"]::-webkit-inner-spin-button {
   justify-content: center;
   &-header {
     display: flex;
-    padding: 15px;
+    padding: $pg * 3;
     height: 40px;
     width: 100%;
     color: #0f0d0e;
@@ -386,7 +387,7 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     background-color: #f9f4da;
     border-radius: 10px;
-    padding: 15px;
+    padding: $pg * 3;
     color: #0f0d0e;
     font-size: $fz-m;
     flex-direction: column;
@@ -410,7 +411,7 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: $fz;
     @media screen and (min-width: 1024px) {
       width: 100px;
-      font-size: 18px;
+      font-size: $fz-l;
       & p {
         margin: auto;
       }
@@ -456,21 +457,21 @@ input[type="number"]::-webkit-inner-spin-button {
   }
   &__tests {
     display: flex;
-    font-size: 14px;
+    font-size: $fz;
     justify-content: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: $mn * 2;
     @media screen and (min-width: 1024px) {
       width: 220px;
       justify-content: center;
-      font-size: 14px;
+      font-size: $fz;
       margin: auto;
       gap: 5px;
     }
   }
   &__test {
     background-color: #007aff;
-    padding: 5px 10px;
+    padding: $pg $pg * 2;
     border-radius: 10px;
     color: #f9f4da;
   }

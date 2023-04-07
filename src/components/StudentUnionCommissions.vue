@@ -159,9 +159,13 @@ export default {
     border-top: 1px solid #0f0d0e;
   }
   &__title {
-    padding: 10px;
+    padding: $pg * 2;
     font-weight: bold;
     position: relative;
+    cursor: pointer;
+    @media screen and (min-width: 1024px) {
+      padding: $pg * 3;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -173,33 +177,88 @@ export default {
       width: 20px;
       height: 20px;
       transition: transform 0.2s ease-in-out;
+      @media screen and (min-width: 1024px) {
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        right: 20px;
+      }
     }
   }
   &__main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 0 15px;
+    padding: 0 $pg * 3;
     background-color: #f9f4da;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
     max-height: 0;
     opacity: 0;
     box-shadow: inset 0 2px 5px #0f0d0e, inset 0 -2px 5px #0f0d0e;
-    & img:first-of-type {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
     }
-    & img:last-of-type {
-      width: 50%;
-      border-radius: 10px;
-      margin: auto;
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      gap: 20px;
+      padding: 0 $pg * 4;
+      max-height: 0;
+      font-size: $fz-m;
+    }
+    & img {
+      @media screen and (min-width: 768px) {
+        margin: auto 0;
+      }
+      &:first-of-type {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        @media screen and (min-width: 768px) {
+          width: 360px;
+          order: 2;
+        }
+        @media screen and (min-width: 1024px) {
+          width: 360px;
+          order: 1;
+        }
+      }
+      &:last-of-type {
+        width: 50%;
+        border-radius: 10px;
+        margin: auto;
+        @media screen and (min-width: 768px) {
+          width: 170px;
+          order: 3;
+        }
+        @media screen and (min-width: 1024px) {
+          width: 170px;
+          order: 3;
+        }
+      }
     }
   }
   &__header {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: $mn * 2;
+  }
+  &__text {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      order: 1;
+    }
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      order: 2;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 560px;
+    }
   }
 }
 .open + .commission {
@@ -211,7 +270,10 @@ export default {
 }
 
 .commission-open {
-  padding: 15px;
+  padding: $pg * 3;
   opacity: 1;
+  @media screen and (min-width: 1024px) {
+    padding: $pg * 4;
+  }
 }
 </style>

@@ -45,10 +45,9 @@ body {
   margin: $mn*10 0;
   background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 10%;
   background-size: 100px;
-  @media screen and (min-width: 786px) {
+  @media screen and (min-width: 768px) {
     background-position: 100% 20%;
     background-size: 200px;
-
   }
   @media screen and (min-width: 1024px) {
     margin: $mn*10 0 $mn * 20 0;

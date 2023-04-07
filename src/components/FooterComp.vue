@@ -47,6 +47,9 @@ export default {
   color: #0f0d0e;
   background-color: $main-color-2;
   text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
   &__content {
     display: flex;
     flex-direction: column;

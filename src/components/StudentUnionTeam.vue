@@ -32,7 +32,7 @@ export default {
         {
           id: 1,
           href: "https://vk.com/akopyan.mariam",
-          src: "Мариам_Акопян.png",
+          src: "Мариам_Акопян.jpg",
           firstname: "Мариам",
           surname: "Акопян",
           post: "Председатель Союза студентов ФТИ",
@@ -40,7 +40,7 @@ export default {
         {
           id: 2,
           href: "https://vk.com/buldozier",
-          src: "Владислав_Рухлинский.png",
+          src: "Владислав_Рухлинский.jpg",
           firstname: "Владислав",
           surname: "Рухлинский",
           post: "Первый заместитель председателя",
@@ -56,7 +56,7 @@ export default {
         {
           id: 4,
           href: "https://vk.com/id140153930",
-          src: "Мария_Доманова.png",
+          src: "Мария_Доманова.jpg",
           firstname: "Мария",
           surname: "Доманова",
           post: "Заместитель председателя по учебно-научной работе",
@@ -64,7 +64,7 @@ export default {
         {
           id: 5,
           href: "https://vk.com/milana_koryukova",
-          src: "Милана_Корюкова.png",
+          src: "Милана_Корюкова.jpg",
           firstname: "Милана",
           surname: "Корюкова",
           post: "Заместитель председателя по работе с наставниками",
@@ -72,7 +72,7 @@ export default {
         {
           id: 6,
           href: "https://vk.com/spiridonkinova",
-          src: "Ирина_Спиридонова.png",
+          src: "Ирина_Спиридонова.jpg",
           firstname: "Ирина",
           surname: "Спиридонова",
           post: "Заместитель председателя по жилищно-бытовой работе",
@@ -80,7 +80,7 @@ export default {
         {
           id: 7,
           href: "https://vk.com/pann_guss",
-          src: "Денис_Кодочигов.png",
+          src: "Денис_Кодочигов.jpg",
           firstname: "Денис",
           surname: "Кодочигов",
           post: "Руководитель проекта Role Play",
@@ -88,7 +88,7 @@ export default {
         {
           id: 8,
           href: "https://vk.com/vsemoguen",
-          src: "Ришат_Юмагуен.png",
+          src: "Ришат_Юмагуен.jpg",
           firstname: "Ришат",
           surname: "Юмагуен",
           post: "Заместитель председателя по организационно-массовой работе",
@@ -96,7 +96,7 @@ export default {
         {
           id: 9,
           href: "https://vk.com/daria_7m",
-          src: "Дарья_Морозова.png",
+          src: "Дарья_Морозова.jpg",
           firstname: "Дарья",
           surname: "Морозова",
           post: "Заместитель председателя по информационной работе",
@@ -104,7 +104,7 @@ export default {
         {
           id: 10,
           href: "https://vk.com/risovanyiad",
-          src: "Андрей_Рисованый.png",
+          src: "Андрей_Рисованый.jpg",
           firstname: "Андрей",
           surname: "Рисованый",
           post: "Заместитель председателя по работе с партнерами",
@@ -112,7 +112,7 @@ export default {
         {
           id: 11,
           href: "https://vk.com/yanuula",
-          src: "Яна_Шалупова.png",
+          src: "Яна_Шалупова.jpg",
           firstname: "Яна",
           surname: "Шалупова",
           post: "Заместитель председателя по работе с волонтерами",
@@ -120,7 +120,7 @@ export default {
         {
           id: 12,
           href: "https://vk.com/sashaadmirer",
-          src: "Екатерина_Муллагалиева.png",
+          src: "Екатерина_Муллагалиева.jpg",
           firstname: "Екатерина",
           surname: "Муллагалиева",
           post: "Заместитель председателя по социально-правовой работе",
@@ -128,7 +128,7 @@ export default {
         {
           id: 13,
           href: "https://vk.com/kpyrsikov",
-          src: "Кирилл_Пырсиков.png",
+          src: "Кирилл_Пырсиков.jpg",
           firstname: "Кирилл",
           surname: "Пырсиков",
           post: "Заместитель председателя по культурно-массовой работе",
@@ -141,20 +141,34 @@ export default {
 
 <style lang="scss" scoped>
 .team {
-  margin-top: 50px;
+  margin-top: $mn * 10;
+  @media screen and (min-width: 1024px) {
+    margin-top: $mn * 20;
+  }
   &__structure {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 50px;
+    margin-bottom: $mn * 10;
+    @media screen and (min-width: 768px) {
+      gap: 40px;
+    }
+    @media screen and (min-width: 1024px) {
+      margin-top: $mn * 16;
+    }
   }
 }
 
 .person {
   width: 140px;
-  margin-bottom: 20px;
-
+  margin-bottom: $mn * 4;
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 200px;
+  }
   & a {
     border-radius: 50%;
   }
@@ -163,23 +177,44 @@ export default {
     width: 140px;
     height: 140px;
     border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+    @media screen and (min-width: 768px) {
+      width: 180px;
+      height: 180px;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 200px;
+      height: 200px;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__info {
-    margin-top: 20px;
+    margin-top: $mn * 4;
     text-align: center;
     & p {
-      font-size: 12px;
+      font-size: $fz-s;
+      @media screen and (min-width: 768px) {
+        font-size: $fz;
+      }
     }
   }
 
   &__name {
-    margin-bottom: 10px;
+    margin-bottom: $mn * 2;
 
     & .firstname,
     & .surname {
-      font-size: 14px;
+      font-size: $fz;
       font-weight: bold;
+      @media screen and (min-width: 768px) {
+        font-size: $fz-m;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: $fz-l;
+      }
     }
   }
 }

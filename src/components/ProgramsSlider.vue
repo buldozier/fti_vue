@@ -418,16 +418,16 @@ export default {
     }
     &__button {
       display: inline-block;
-      padding: 10px;
+      padding: $pg * 2;
       border: 1px solid #0f0d0e;
       border-radius: 10px;
       cursor: pointer;
       color: #0f0d0e;
       transition: 0.2s all ease-in-out;
-      margin-left: 15px;
-      margin-bottom: 40px;
+      margin-left: $mn * 3;
+      margin-bottom: $mn * 8;
       text-decoration: none;
-      font-size: 14px;
+      font-size: $fz;
     }
   }
   &__description {
@@ -450,11 +450,11 @@ export default {
     display: flex;
     gap: 10px;
     font-size: $fz-l;
-    padding: 0 15px 15px 15px;
+    padding: 0 $pg * 3 $pg * 3 $pg * 3;
     &_magistr {
       display: flex;
       gap: 20px;
-      padding: 0 15px 15px 15px;
+      padding: 0 $pg * 3 $pg * 3 $pg * 3;
     }
   }
   &__places-and-score {
@@ -483,15 +483,15 @@ export default {
         display: inline-block;
         font-size: 0;
         & + a {
-          margin-left: 20px;
+          margin-left: $mn * 4;
         }
         & + .text {
-          margin-top: 5px;
+          margin-top: $mn;
         }
       }
     }
     &_score {
-      margin-top: 10px;
+      margin-top: $mn * 2;
       & > .number::after {
         content: "";
         position: absolute;
@@ -510,7 +510,7 @@ export default {
     flex-wrap: wrap;
     gap: 5px;
     @media screen and (min-width: 1200px) {
-      margin-left: 20px;
+      margin-left: $mn * 4;
     }
     &_magistr {
       display: flex;
@@ -564,7 +564,7 @@ export default {
 }
 
 .programs-stage {
-  padding: 5px 10px;
+  padding: $pg $pg * 2;
   border-radius: 10px;
   margin: 0 auto;
   color: #f9f4da;
@@ -590,11 +590,11 @@ export default {
 }
 
 .number {
-  font-size: 20px;
+  font-size: $fz-xl;
   font-weight: 500;
   position: relative;
   & + .text {
-    margin-top: 10px;
+    margin-top: $mn * 2;
   }
 }
 
@@ -624,7 +624,7 @@ export default {
     display: flex;
     gap: 30px;
 
-    margin-right: 50px;
+    margin-right: $mn * 10;
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -638,11 +638,11 @@ export default {
 }
 
 .swiper-pagination {
-  margin-bottom: 5px;
+  margin-bottom: $mn;
 }
 
 .swiper-scrollbar {
-  margin-bottom: 5px;
+  margin-bottom: $mn;
 }
 
 @media screen and (min-width: 1024px) {
@@ -650,7 +650,7 @@ export default {
     display: flex;
     gap: 30px;
     align-items: center;
-    margin-right: 50px;
+    margin-right: $mn * 10;
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;

@@ -84,6 +84,7 @@ export default {
         },
       ],
       showMore: false,
+      isLaptopSize: null,
     };
   },
   components: { ButtonUI },
@@ -92,43 +93,88 @@ export default {
       this.showMore = true;
       event.target.classList.add("hidden");
     },
+    setWindowSize() {
+      this.isLaptopSize = window.innerWidth >= 768;
+    },
   },
   computed: {
     morePhotos() {
-      return this.showMore ? this.photos : this.photos.slice(0, 5);
+      if (this.isLaptopSize === true) {
+        console.log(true);
+        return this.photos;
+      } else {
+        return this.showMore ? this.photos : this.photos.slice(0, 5);
+      }
     },
+  },
+  mounted() {
+    this.setWindowSize();
+    addEventListener("resize", () => {
+      this.setWindowSize();
+    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .gallery {
-  margin-top: 50px;
+  margin-top: $mn * 10;
+  @media screen and (min-width: 1024px) {
+    margin-top: $mn * 20;
+  }
   &__photos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    @media screen and (min-width: 1024px) {
+      gap: 30px;
+    }
   }
   &__photo {
     width: 340px;
     border-radius: 10px;
+    @media screen and (min-width: 768px) {
+      width: 330px;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 470px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 550px;
+    }
   }
   &__buttons {
-    margin-top: 20px;
+    margin-top: $mn * 4;
     display: flex;
     gap: 10px;
     justify-content: space-evenly;
+    @media screen and (min-width: 1024px) {
+      margin-top: $mn * 6;
+    }
     & a {
       text-decoration: none;
     }
   }
   &__button {
     width: 150px;
+    &:hover {
+      background-color: $main-color-2;
+      color: $text-color-2;
+    }
   }
 }
 
 .hidden {
   display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
+.show-photo {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 </style>

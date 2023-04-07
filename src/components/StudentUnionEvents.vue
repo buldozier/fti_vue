@@ -46,10 +46,20 @@ export default {
 .events {
   display: flex;
   flex-direction: column;
+
   &__content {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    @media screen and (min-width: 768px) {
+      gap: 40px;
+    }
+    @media screen and (min-width: 1024px) {
+      gap: 20px;
+    }
+    @media screen and (min-width: 1200px) {
+      gap: 35px;
+    }
   }
 }
 
@@ -63,6 +73,26 @@ export default {
   background-color: #0f0d0e;
   border-radius: 20px;
   user-select: none;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    width: 320px;
+    height: 213px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 310px;
+    height: 207px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 360px;
+    height: 240px;
+  }
+
+  &:hover img {
+    @media screen and (min-width: 1024px) {
+      transform: scale(1.03);
+      filter: opacity(65%);
+    }
+  }
   & img {
     border-radius: 20px;
     filter: opacity(30%);
@@ -71,10 +101,23 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+    @media screen and (min-width: 768px) {
+      width: 320px;
+      height: 213px;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 310px;
+      height: 207px;
+      transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 360px;
+      height: 240px;
+    }
   }
   & p {
     margin: auto;
-    font-size: 18px;
+    font-size: $fz-l;
     text-align: center;
     z-index: 5;
     text-shadow: 1px 1px 2px #0f0d0e;

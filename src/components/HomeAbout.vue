@@ -67,9 +67,9 @@ export default {
 
 <style lang="scss" scoped>
 .about {
-  margin-bottom: 50px;
+  margin-bottom: $mn * 10;
   @media screen and (min-width: 1024px) {
-    margin-bottom: 100px;
+    margin-bottom: $mn * 20;
     &__title-and-text {
       width: 600px;
     }
@@ -87,7 +87,7 @@ export default {
   &__title {
     text-align: left;
     @media screen and (min-width: 1024px) {
-      margin-bottom: 50px;
+      margin-bottom: $mn * 10;
     }
   }
   &__picture {
@@ -131,13 +131,13 @@ export default {
     }
   }
   &__buttons {
-    margin-top: 40px;
+    margin-top: $mn * 8;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     gap: 35px;
-    margin-bottom: 60px;
+    margin-bottom: $mn * 12;
     @media screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: center;

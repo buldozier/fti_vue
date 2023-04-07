@@ -82,22 +82,30 @@ export default {
 
 .overlay-event {
   max-height: 80vh;
-  margin: auto 15px;
-  padding: 15px;
+  margin: auto $mn * 3;
+  padding: $pg * 3;
   border-radius: 15px;
   background-color: #f9f4da;
   color: #0f0d0e;
   position: relative;
+  @media screen and (min-width: 768px) {
+    width: 708px;
+    margin: auto;
+  }
   &__top {
     display: flex;
     height: 44px;
-    margin-bottom: 20px;
+    margin-bottom: $mn * 4;
   }
   &__header {
     width: calc(100% - 45px);
-    font-size: 18px;
+    font-size: $fz-l;
     font-weight: bold;
     margin: auto 0;
+    @media screen and (min-width: 768px) {
+      font-size: $fz-xl;
+      font-weight: bold;
+    }
   }
   &__close-btn {
     z-index: 10;
@@ -151,14 +159,17 @@ export default {
     }
   }
   &__text {
-    margin-bottom: 20px;
+    margin-bottom: $mn * 4;
+    @media screen and (min-width: 768px) {
+      font-size: $fz-m;
+    }
   }
   &__video {
     width: 100%;
     aspect-ratio: 16/9;
     border: none;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: $mn * 4;
   }
   &__photos {
     display: flex;

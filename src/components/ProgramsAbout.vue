@@ -107,8 +107,8 @@ export default {
     padding-bottom: 0;
   }
   &__info p {
-    padding-bottom: 20px;
-    padding-left: 20px;
+    padding-bottom: $pg * 4;
+    padding-left: $pg * 4;
   }
 }
 </style>

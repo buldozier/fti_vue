@@ -186,31 +186,30 @@ export default {
 
 <style lang="scss" scoped>
 .departments {
-  margin: 0 10px;
+  margin: 0 $mn * 2;
   background-color: $additional-color-2;
   border-radius: 20px;
-  margin-bottom: 40px;
+  margin-bottom: $mn * 8;
   position: relative;
   overflow: hidden;
   @media screen and (min-width: 1024px) {
-    margin-bottom: 100px;
+    margin-bottom: $mn * 20;
   }
   & .container {
-    padding: 25px 10px;
+    padding: $pg * 5 $pg * 2;
     @media screen and (min-width: 1024px) {
-      padding-top: 50px;
-      padding-bottom: 50px;
+      padding: $pg * 10 0;
     }
   }
   &__top {
     @media screen and (min-width: 1024px) {
-      margin-bottom: 80px;
+      margin-bottom: $mn * 16;
       display: flex;
       justify-content: space-between;
     }
   }
   &__header {
-    margin-bottom: 30px;
+    margin-bottom: $mn * 6;
     @media screen and (min-width: 1024px) {
       margin-bottom: 0;
     }
@@ -249,7 +248,7 @@ export default {
     align-items: center;
     justify-content: center;
     border-bottom: 2px solid #0f0d0e;
-    padding: 15px;
+    padding: $pg * 3;
     height: 42px;
     text-align: center;
     & h4 {
@@ -266,7 +265,7 @@ export default {
 
   &__description {
     font-size: $fz-s;
-    padding: 15px;
+    padding: $pg * 3;
     height: 250px;
     @media screen and (min-width: 1024px) {
       font-size: $fz-s;
@@ -280,7 +279,7 @@ export default {
 
   &__footer {
     background-color: $main-color-2;
-    padding: 15px 15px 30px 50px;
+    padding: $pg * 3 $pg * 3 $pg * 6 $pg * 10;
     border-radius: 0 0 10px 10px;
     font-size: $fz-s;
     position: relative;
@@ -328,7 +327,7 @@ export default {
     display: flex;
     gap: 30px;
     align-items: center;
-    margin-right: 50px;
+    margin-right: $mn * 10;
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;

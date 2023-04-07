@@ -1,5 +1,6 @@
 <template>
   <main class="main">
+    <div ref="top"></div>
     <navbar-comp />
     <router-view />
     <footer-comp />
@@ -18,6 +19,10 @@ export default {
   components: { NavbarComp, FooterComp, ModalUI },
   computed: {
     ...mapGetters(["showModal"]),
+  },
+  mounted() {
+    console.log(123);
+    window.scrollTo(0, this.$refs["top"].offsetTop);
   },
 };
 </script>

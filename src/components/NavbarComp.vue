@@ -164,7 +164,7 @@ export default {
   background-color: $additional-color-2;
   width: 100%;
   height: 50px;
-  padding: 10px;
+  padding: $pg * 2;
   z-index: 100;
   & img {
     width: 30px;
@@ -223,7 +223,7 @@ export default {
 
 .header {
   display: flex;
-  padding: 0 135px;
+  padding: 0 $pg * 27;
   height: 120px;
   position: sticky;
   top: 0;
@@ -302,7 +302,7 @@ export default {
   opacity: 0;
   transition: all 0.3s ease-in-out;
   transform: translateY(-90px);
-  margin-bottom: -90px;
+  margin-bottom: -$mn * 18;
   z-index: -1;
 }
 
