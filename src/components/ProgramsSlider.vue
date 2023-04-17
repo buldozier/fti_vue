@@ -4,6 +4,25 @@
       <div class="programs-slider__top">
         <div class="programs-slider__top_content">
           <h2 class="programs-slider__header">Направления подготовки</h2>
+        </div>
+        <div class="programs-slider__buttons">
+          <div class="justify">
+            <div
+              class="programs-slider__button"
+              :class="isSwiperBakalavr ? 'button-checked' : ''"
+              @click="setProgramsType('bak')"
+            >
+              Бакалавриат/Специалитет
+            </div>
+            <div
+              class="programs-slider__button"
+              :class="isSwiperBakalavr ? '' : 'button-checked'"
+              @click="setProgramsType()"
+            >
+              Магистратура
+            </div>
+          </div>
+
           <div class="slider-buttons" v-show="isLaptopSize">
             <button class="swiper-button-prev">
               <img src="../assets/icons/arrow-up-short_1.svg" alt="Назад" />
@@ -11,22 +30,6 @@
             <button class="swiper-button-next">
               <img src="../assets/icons/arrow-up-short_1.svg" alt="Вперед" />
             </button>
-          </div>
-        </div>
-        <div class="programs-slider__buttons">
-          <div
-            class="programs-slider__button"
-            :class="isSwiperBakalavr ? 'button-checked' : ''"
-            @click="setProgramsType('bak')"
-          >
-            Бакалавриат/Специалитет
-          </div>
-          <div
-            class="programs-slider__button"
-            :class="isSwiperBakalavr ? '' : 'button-checked'"
-            @click="setProgramsType()"
-          >
-            Магистратура
           </div>
         </div>
       </div>
@@ -289,9 +292,6 @@ export default {
     }
   }
   &__top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     margin-bottom: $mn * 6;
     &_content {
       display: flex;
@@ -314,22 +314,34 @@ export default {
   &__buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
     width: 100%;
-    justify-content: space-evenly;
     font-size: $fz;
     margin: $mn * 4 0;
+    & .justify {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
+      @media screen and (min-width: 1024px) {
+        width: auto;
+        justify-content: space-between;
+        font-size: $fz-l;
+      }
+    }
     @media screen and (min-width: 1024px) {
-      justify-content: flex-start;
+      justify-content: space-between;
       font-size: $fz-l;
-      gap: 20px;
     }
   }
   &__button {
+    display: flex;
     color: #fcba28;
     padding: $pg * 2;
+    text-align: center;
     border: 1px solid #fcba28;
     border-radius: 10px;
+    align-items: center;
     cursor: pointer;
     -ms-user-select: none;
     -moz-user-select: none;
@@ -623,8 +635,6 @@ export default {
   @media screen and (min-width: 1024px) {
     display: flex;
     gap: 30px;
-
-    margin-right: $mn * 10;
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;

@@ -43,15 +43,15 @@ body {
 
 .page-wrap {
   margin: $mn*10 0;
-  background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 10%;
+  background: url(@/assets/icons/FTI_TEXT.svg) no-repeat 100% 50px;
   background-size: 100px;
   @media screen and (min-width: 768px) {
-    background-position: 100% 20%;
+    background-position: 100% 50px;
     background-size: 200px;
   }
   @media screen and (min-width: 1024px) {
     margin: $mn*10 0 $mn * 20 0;
-    background-position: 100% 10%;
+    background-position: 100% 50px;
     background-size: 300px;
   }
 }

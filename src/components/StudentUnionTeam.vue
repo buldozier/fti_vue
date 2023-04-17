@@ -4,7 +4,7 @@
       <h2 class="team__header">Команда</h2>
       <div class="team__structure">
         <div class="person" v-for="person in team" :key="person.id">
-          <a :href="person.href">
+          <a :href="person.href" target="_blank">
             <img
               :src="require(`@/assets/img/student_union/team/${person.src}`)"
               :alt="person.surname + person.firstname"

@@ -16,11 +16,13 @@
           </div>
           <div class="footer__vk">
             <img src="../assets/icons/vk.svg" alt="ВКонтакте" />
-            <a href="https://vk.com/profburo_fti">vk.com/profburo_fti</a>
+            <a href="https://vk.com/profburo_fti" target="_blank"
+              >vk.com/profburo_fti</a
+            >
           </div>
         </div>
         <div class="footer__btn">
-          <a href="https://urfu.ru/ru/">
+          <a href="https://urfu.ru/ru/" target="_blank">
             <button-u-i class="footer__btn_inner">
               <div>Сайт УрФУ</div>
             </button-u-i>

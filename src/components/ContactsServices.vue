@@ -236,7 +236,7 @@ export default {
     @media screen and (min-width: 1024px) {
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 60px;
     }
     & ul {
       list-style: none;

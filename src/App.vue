@@ -21,7 +21,6 @@ export default {
     ...mapGetters(["showModal"]),
   },
   mounted() {
-    console.log(123);
     window.scrollTo(0, this.$refs["top"].offsetTop);
   },
 };

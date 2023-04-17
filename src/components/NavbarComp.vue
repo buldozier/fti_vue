@@ -163,8 +163,8 @@ export default {
   left: 0;
   background-color: $additional-color-2;
   width: 100%;
-  height: 50px;
-  padding: $pg * 2;
+  height: 60px;
+  padding: $pg * 2 $pg * 5;
   z-index: 100;
   & img {
     width: 30px;
@@ -181,6 +181,7 @@ export default {
 
 .toggle-sidebar {
   display: flex;
+  -webkit-appearance: none;
   height: 100%;
 }
 
@@ -212,8 +213,8 @@ export default {
   }
   &__close-button {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 20px;
+    right: 25px;
   }
 }
 

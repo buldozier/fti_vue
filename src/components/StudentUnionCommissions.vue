@@ -213,7 +213,7 @@ export default {
         margin: auto 0;
       }
       &:first-of-type {
-        width: 100%;
+        max-width: 340px;
         height: auto;
         border-radius: 10px;
         @media screen and (min-width: 768px) {
@@ -226,7 +226,7 @@ export default {
         }
       }
       &:last-of-type {
-        width: 50%;
+        max-width: 170px;
         border-radius: 10px;
         margin: auto;
         @media screen and (min-width: 768px) {

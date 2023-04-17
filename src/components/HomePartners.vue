@@ -3,7 +3,12 @@
     <div class="container">
       <h2 class="partners__header">Партнеры</h2>
       <div class="partners__flexbox">
-        <a :href="partner.href" v-for="partner in partners" :key="partner.id">
+        <a
+          :href="partner.href"
+          target="_blank"
+          v-for="partner in partners"
+          :key="partner.id"
+        >
           <div class="partner">
             <img
               :src="require(`../assets/img/partners/${partner.src}`)"

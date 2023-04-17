@@ -115,6 +115,7 @@ export default {
       height: 383px;
     }
     & img {
+      display: block;
       width: 150px;
       height: 150px;
       border-radius: 50%;
@@ -167,6 +168,7 @@ export default {
     border-radius: 10px;
     box-shadow: 5px 5px #fcba28;
     & img {
+      display: block;
       width: 270px;
       border-radius: 10px;
     }

@@ -92,6 +92,9 @@ export default {
     width: 708px;
     margin: auto;
   }
+  @media screen and (min-width: 1024px) {
+    width: 900px;
+  }
   &__top {
     display: flex;
     height: 44px;

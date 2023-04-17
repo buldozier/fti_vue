@@ -17,7 +17,7 @@
         <button-u-i class="show-photo gallery__button" @click="showMorePhotos"
           >Показать еще</button-u-i
         >
-        <a href="https://vk.com/albums-8864093" class="album-vk"
+        <a href="https://vk.com/albums-8864093" target="_blank" class="album-vk"
           ><button-u-i class="gallery__button">Альбом в VK</button-u-i></a
         >
       </div>

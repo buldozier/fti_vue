@@ -266,7 +266,7 @@ export default {
       align-self: center;
     }
     & input {
-      width: 50px;
+      width: 60px;
       padding: $mn * 3;
       font-size: $fz;
       color: #f9f4da;
@@ -280,7 +280,7 @@ export default {
       -moz-appearance: none;
       appearance: none;
       @media screen and (min-width: 1024px) {
-        width: 70px;
+        width: 80px;
         font-size: $fz-l;
       }
     }
